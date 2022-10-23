@@ -1,0 +1,4 @@
+---
+# tasks file for apache
+- name: start apache2 server
+  service: name=httpd state=started
