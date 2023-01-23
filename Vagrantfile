@@ -8,10 +8,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do|config|
     end 
     
     #Web Server 
-    config.vm.define "web1" do|web| 
-        web.vm.hostname = "master" 
-        web.vm.box = "geerlingguy/centos7" 
-        web.vm.network "private_network", ip: "192.168.43.14" 
+    config.vm.define "ansible" do|ansible| 
+        ansible.vm.hostname = "master" 
+        ansible.vm.box = "geerlingguy/centos7" 
+        ansible.vm.network "private_network", ip: "192.168.43.14" 
+        ansible.vm.provision "shell", inline: <<-SHELL
+        yum update -y
+        yum install ansible -y
+        SHELL
     end 
     
     #Application Server1 
