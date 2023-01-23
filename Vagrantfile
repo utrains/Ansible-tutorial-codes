@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do|config|
         ansible.vm.network "private_network", ip: "192.168.43.14" 
         ansible.vm.provision "shell", inline: <<-SHELL
         yum update -y
-        yum install ansible -y
+        yum install ansible vim -y
         SHELL
     end 
     
