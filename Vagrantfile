@@ -29,7 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do|config|
         db.vm.network "private_network", ip: "192.168.43.13" 
     end 
     
-    config.vm.box_check_update = false 
-    config.vbguest.auto_update = false 
+    
 end
 
