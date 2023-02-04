@@ -1,0 +1,20 @@
+# -*- mode: ruby -*- 
+# vi: set ft=ruby : 
+VAGRANTFILE_API_VERSION = "2" 
+Vagrant.configure(VAGRANTFILE_API_VERSION) do|config| 
+    config.ssh.insert_key = false 
+    config.vm.provider :virtualbox do|vb| 
+        vb.customize ["modifyvm", :id, "--memory", "2048"] 
+    end 
+    
+    #Web Server 
+    config.vm.define "web1" do|web| 
+        web.vm.hostname = "master" 
+        web.vm.box = "geerlingguy/centos7" 
+        web.vm.network "private_network", ip: "192.168.43.14" 
+    end 
+    
+    
+ 
+end
+
